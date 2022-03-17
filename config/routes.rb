@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
   namespace :public do
     resources :items, only: [:index, :show]
-    resources :cart_item, only: [:index, :create, :update, :destroy, :destroy_all]
+    resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
     resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdrow]
     resources :orders, only: [:new, :create, :check, :complete, :index, :show]
     resources :address, only: [:index, :destroy, :edit, :update, :create]

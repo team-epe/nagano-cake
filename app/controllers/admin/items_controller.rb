@@ -16,10 +16,4 @@ class Admin::ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def create
-  end
-
-  def update
-  end
-
 end

@@ -1,7 +1,4 @@
 class Admin::ItemsController < ApplicationController
-  def create
-  end
-
   def index
   end
 
@@ -16,6 +13,4 @@ class Admin::ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def update
-  end
 end

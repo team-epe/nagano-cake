@@ -20,7 +20,9 @@ Rails.application.routes.draw do
     #resources :sessions, only: [:new, :create, :destroy]
     #resources :registrations, only: [:new, :create]
     get '/about' => 'homes#about'
+    get 'customer/withdraw'
     root to: 'homes#top'
+    get '/customers/my_page' => 'customers#show', as: 'my_page'
   end
 
  # 顧客用

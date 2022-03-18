@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <p>ようこそ,ながのケーキへ!<br>
+      このサイトは、ケーキ販売のECサイトになります。<br>
+      会員でない方も商品の閲覧はできますが、<br>
+      購入には会員登録が必要になります。</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="max-auto">
+      <h2>新着商品</h2>
+    </div>
+  </div>
+  <div class="row">
+      <% @items.first(4).each do |item| %>
+       <div class="col-3">
+        <%= link_to item_path(item.id) do %>
+          <%= image_tag item.get_image(200,100), size: "200x100" %>
+          <p><%= item.name %></p>
+          <p><%= item.price %></p>
+        <% end %>
+       </div>
+      <% end %>
+  
+      <%= link_to "全ての商品を見る", items_path %>
+  </div>
+</div>

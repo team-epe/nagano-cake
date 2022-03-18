@@ -13,13 +13,13 @@ Rails.application.routes.draw do
   end
   namespace :public do
     resources :items, only: [:index, :show]
-    resources :cart_item, only: [:index, :create, :update, :destroy, :destroy_all]
+    resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
     resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdrow]
     resources :orders, only: [:new, :create, :check, :complete, :index, :show]
     resources :address, only: [:index, :destroy, :edit, :update, :create]
     #resources :sessions, only: [:new, :create, :destroy]
     #resources :registrations, only: [:new, :create]
-    get '/about' => 'homes#about'
+     get '/about' => 'homes#about'
     root to: 'homes#top'
   end
 

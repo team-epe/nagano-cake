@@ -1,0 +1,10 @@
+<!--管理者の商品一覧ページ-->
+<%= @items.each do |item| %>
+<p><%= item.name %></p>
+<p><%= item.image_id %></p>
+<p><%= item.introduction %></p>
+<p><%= item.price %></p>
+<p><%= item.is_active %></p>
+<p><%= item.created_at %></p>
+<p><%= item.updated_at </p>
+<% end %>

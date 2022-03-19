@@ -1,11 +1,7 @@
 <h2>Resend confirmation instructions</h2>
 
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-<<<<<<< HEAD
-  <%= render "publics/shared/error_messages", resource: resource %>
-=======
   <%= render "public/shared/error_messages", resource: resource %>
->>>>>>> 81affd30eaa5b799c80238b3e53559e30a807207
 
   <div class="field">
     <%= f.label :email %><br />
@@ -16,9 +12,4 @@
     <%= f.submit "Resend confirmation instructions" %>
   </div>
 <% end %>
-
-<<<<<<< HEAD
-<%= render "publics/shared/links" %>
-=======
 <%= render "public/shared/links" %>
->>>>>>> 81affd30eaa5b799c80238b3e53559e30a807207

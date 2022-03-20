@@ -1,0 +1,39 @@
+<!--商品新規投稿-->
+<!-- url:'パス'→指定したURLにPOST（新規データ送信）する  -->
+<h1>新規登録</h1>
+<%= form_with model: @item, url: '/admin/items'  do |f| %>
+    <div class="form-group">
+        <%= f.label :商品画像 %>
+        <%= f.attachment_field :image %>
+      </div>
+    <div class="form-group">
+      <%= f.label :商品名 %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="form-group">
+        <%= f.label :商品説明 %>
+        <%= f.text_area :introduction %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :ジャンル %>
+        <%= f.collection_select :genre_id, @genre, :id, :name, include_blank: '-- 選択してください --' %>
+        <!--collection_select(オブジェクト名, メソッド名, 要素の配列, value属性の項目, テキストの項目 [, オプション or HTML属性 or イベント属性])
+        モデルから引っ張ってきた選択肢から選んでDBに送ろう
+        第一引数　ここでは genre_id この情報をもとに、selectタグのid属性、name属性を決める。
+        オブジェクトの配列 ここでは@genre その選択肢はどの配列がもとになるの？ 全てのジャンルから選ぶ
+        :id value属性の項目
+          ここにvalueが入る、つまり選択された場合ここの値がDBに送られる。今回は主キーの:idなのでidが送られる。
+          :name　選択肢に実際に表示するのはこれということを指定している。項目は、オプションタグ内のテキストに設定したい値のカラム名が入る。nameカラムを選択肢として表示したいので:nameと設定する。-->
+      </div>
+      <div class="form-group">
+        <%= f.label :税抜価格 %>
+        <%= f.number_field :price %> 円
+      </div>
+      <div class="form-group">
+        <%= f.label :販売ステータス %>
+            <%= f.radio_button :is_active, true %>販売中
+            <%= f.radio_button :is_active, false %>在庫切れ
+      </div>
+      <%= f.submit '新規登録' %>
+<% end %>

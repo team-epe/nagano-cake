@@ -19,17 +19,8 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :destroy, :edit, :update, :create]
     #resources :sessions, only: [:new, :create, :destroy]
     #resources :registrations, only: [:new, :create]
-<<<<<<< HEAD
     get '/about' => 'homes#about'
     get 'customer/withdraw'
-=======
-<<<<<<< HEAD
-     get '/about' => 'homes#about'
-=======
-    get '/about' => 'homes#about'
-    get 'customer/withdraw'
->>>>>>> 81affd30eaa5b799c80238b3e53559e30a807207
->>>>>>> refs/remotes/origin/orders_show
     root to: 'homes#top'
     get '/customers/my_page' => 'customers#show', as: 'my_page'
   end

@@ -1,37 +1,13 @@
-<<<<<<< HEAD
 <h2>ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :メールアドレス %><br />
-=======
-<<<<<<< HEAD
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-=======
-<h2>ログイン</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
->>>>>>> 81affd30eaa5b799c80238b3e53559e30a807207
->>>>>>> refs/remotes/origin/orders_show
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-<<<<<<< HEAD
     <%= f.label :パスワード %><br />
-=======
-<<<<<<< HEAD
-    <%= f.label :password %><br />
-=======
-    <%= f.label :パスワード %><br />
->>>>>>> 81affd30eaa5b799c80238b3e53559e30a807207
->>>>>>> refs/remotes/origin/orders_show
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
@@ -43,15 +19,7 @@
   <% end %>
 
   <div class="actions">
-<<<<<<< HEAD
     <%= f.submit "ログイン" %>
-=======
-<<<<<<< HEAD
-    <%= f.submit "Log in" %>
-=======
-    <%= f.submit "ログイン" %>
->>>>>>> 81affd30eaa5b799c80238b3e53559e30a807207
->>>>>>> refs/remotes/origin/orders_show
   </div>
 <% end %>
 

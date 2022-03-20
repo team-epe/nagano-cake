@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :items, only: [:create, :index, :new, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :update, :edit]
-    resources :orders, only: [:show, :update]
+    resources :orders, only: [:show, :update, :index]
     resources :order_details, only: [:update]
     #resources :sessions, only: [:new, :create, :destroy]
     get '/' => 'homes#top'
@@ -16,11 +16,13 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
     resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdrow]
     resources :orders, only: [:new, :create, :check, :complete, :index, :show]
-    resources :address, only: [:index, :destroy, :edit, :update, :create]
+    resources :addresses, only: [:index, :destroy, :edit, :update, :create]
     #resources :sessions, only: [:new, :create, :destroy]
     #resources :registrations, only: [:new, :create]
-     get '/about' => 'homes#about'
+    get '/about' => 'homes#about'
+    get 'customer/withdraw'
     root to: 'homes#top'
+    get '/customers/my_page' => 'customers#show', as: 'my_page'
   end
 
  # 顧客用

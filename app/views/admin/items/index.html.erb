@@ -1,11 +1,26 @@
-<!--管理者の商品一覧ページ-->
-<%= @item.each do |item| %>
-<p><%= item.name %></p>
-<p><%= item.image_id %></p>
-<p><%= item.introduction %></p>
-<p><%= item.price %></p>
-<p><%= item.is_active %></p>
-<p><%= item.created_at %></p>
-<p><%= item.updated_at %></p>
 
-<% end %>
+<h1>商品一覧</h1>
+<table>
+  <thead>
+    <tr>
+      <th>商品ID</th>
+      <th>商品名</th>
+      <th>税抜価格</th>
+      <th>ジャンル</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @item.each do |item| %>
+    <tr>
+      <td><%= item.id %></td>
+      <td><%= item.name %></td>
+      <td><%= item.price %></td>
+      <td><%= item.genre_id %></td>
+      <td><%= item.is_active %></td>
+      <td><%= link_to '詳細', admin_items_path(item.id) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>

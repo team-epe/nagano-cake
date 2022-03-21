@@ -1,0 +1,27 @@
+<h1><%= @customers.last_name %><%= @customers.first_name %>様の会員情報</h1>
+
+<%= form_for(@customers,url:admin_customer_path) do |f| %>
+  <%= f.label :会員ID %>
+  <%= f.text_field :id, autofocus: true, autocomplete: "id"%><br>
+
+  <%= f.label :氏名 %>
+  <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+  <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %><br>
+
+  <%= f.label :フリガナ %>
+  <%= f.text.field :last_name_kana,autofocus: true, autocomplete: "last_name_kana" %>
+  <%= f.text.field :first_name_kana,autofocus: true, autocomplete: "first_name_kana" %><br>
+
+  <%= f.label :郵便番号 %>
+  <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code"%><br>
+
+  <%= f.label :住所 %>
+  <%= f.text_field :address, autofocus: true, autocomplete: "address" ,size: "40"%><br>
+
+  <%= f.label :電話番号 %>
+  <%= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number"%><br>
+
+  <%= f.label :メールアドレス %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email"%><br>
+
+<% end %>

@@ -17,7 +17,13 @@
       <td><%= customer.last_name %></td>
       <td><%= customer.first_name %></td>
       <td><%= customer.email %></td>
-      <td><%= customer.is_deleted %></td>
+      <td>
+        <% if customer.is_deleted? %>
+          <span>退会</span>
+        <% else %>
+          <sapn>有効</sapn>
+        <% end %>
+      </td>
       <td><%= link_to '詳細', admin_customer_path(customer.id) %></td>
     </tr>
     <% end %>

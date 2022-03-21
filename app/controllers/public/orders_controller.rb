@@ -32,8 +32,11 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @cart_products = current_customer.cart_products
 
+
     @order.shipping_cost = 1000
     @cart_itrems = current_customer.cart_items
+    @total = @cart_items.inject(0) { |sum, item| sum + item.sum_price }
+    @charge = @total + @order.shipping_cost
 
     if params[:order][:address_number] == "0"
       @order.postal_code = current_customer.postal_code
@@ -57,6 +60,9 @@ class Public::OrdersController < ApplicationController
       @address = current_customer.address
       render :new
     end
+
+
+
   end
 
   private

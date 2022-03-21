@@ -20,7 +20,7 @@
   </div>
 
   <div class="row">
-    <%= f.radio_button :address_select, 0, checked: true %>
+    <%= f.radio_button :address_number, 0, checked: true %>
     <%= f.label "ご自身の住所" %>
     <%= current_customer.postal_code %>
     <%= current_customer.adress %>
@@ -29,7 +29,7 @@
 
   <% if current_customer.addresses.exists? %>
     <div class="row">
-      <%= f.radio_button :address_select, 1 %>
+      <%= f.radio_button :address_number, 1 %>
       <%= f.label "登録済住所から選択" %>
     </div>
 
@@ -39,7 +39,7 @@
   <% end %>
 
   <div class="row">
-    <%= f.radio_button :address_select, 2 %>
+    <%= f.radio_button :address_number, 2 %>
     <%= f.label "新しいお届け先" %>
   </div>
   <div class="row">

@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     get 'customer/withdraw'
     root to: 'homes#top'
     get '/customers/my_page' => 'customers#show', as: 'my_page'
+
+    post 'orders/check'
   end
 
  # 顧客用

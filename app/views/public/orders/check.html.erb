@@ -15,7 +15,7 @@
             <td>
               <%#= attachment_image_tag cart_item.product, :image, fallback: "no_image.jpg" %>
             </td>
-            <td><%= cart_item.name %></td>
+            <td><%= cart_item.item.name %></td>
             <td><%= cart_item.item.price %></td>
             <td><%= cart_item.amount %></td>
             <td><%= cart_item.item.price*cart_item.amount %></td>

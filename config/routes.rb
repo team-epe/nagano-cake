@@ -55,5 +55,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get '/customers/sign_out' => 'devise/sessions#destroy'
   end
 
+  devise_scope :admin do
+    get '/admin/sign_out' => 'devise/sessions#destroy'
+  end
 
 end

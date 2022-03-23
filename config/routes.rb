@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
     resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdrow]
+    get "orders/complete"
     resources :orders, only: [:new, :create, :index, :show]
     resources :addresses, only: [:index, :destroy, :edit, :update, :create]
     #resources :sessions, only: [:new, :create, :destroy]
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
     get '/customers/my_page' => 'customers#show', as: 'my_page'
 
     post 'orders/check'
-    get "orders/complete"
+
   end
 
  # 顧客用

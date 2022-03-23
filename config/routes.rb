@@ -19,7 +19,8 @@ Rails.application.routes.draw do
       end
     end
     resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdrow]
-    resources :orders, only: [:new, :create, :check, :complete, :index, :show]
+    get "orders/complete"
+    resources :orders, only: [:new, :create, :index, :show]
     resources :addresses, only: [:index, :destroy, :edit, :update, :create]
     #resources :sessions, only: [:new, :create, :destroy]
     #resources :registrations, only: [:new, :create]
@@ -29,6 +30,8 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get '/customers/my_page' => 'customers#show', as: 'my_page'
 
+
+    post 'orders/check'
   end
 
  # 顧客用

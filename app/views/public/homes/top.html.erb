@@ -16,7 +16,7 @@
           </tr>
           <% end %>
         </tbody>
-      </table>  
+      </table>
     </div>
     <div class="col-lg-10">
       <div class="text-center m-5">
@@ -43,7 +43,9 @@
           <tr>
             <td>
               <%= link_to public_item_path(item.id) do %>
-                <%= image_tag item.image, size: "100x100" %>
+                <%#= attachment_image_tag post, :image, format: 'jpeg', size: '100x100' %>
+                <%= attachment_image_tag item, :image, size: '100x100' %>
+                <%#= image_tag item.image, size: "100x100" %>
               <% end %>
             </td>
           </tr>

@@ -50,7 +50,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     #resources :registrations, only: [:new, :create]
 
   end
-  
+
   devise_scope :customer do
     get '/customers/sign_out' => 'devise/sessions#destroy'
   end

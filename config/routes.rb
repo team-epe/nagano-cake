@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   end
   namespace :public do
     resources :items, only: [:index, :show]
-    resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
+    resources :cart_items, only: [:index, :create, :update, :destroy] do
+      collection do
+        delete 'destroy_all'
+      end
+    end
     resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdrow]
     get "orders/complete"
     resources :orders, only: [:new, :create, :index, :show]
@@ -22,11 +26,12 @@ Rails.application.routes.draw do
     #resources :registrations, only: [:new, :create]
     get '/about' => 'homes#about'
     get 'customer/withdraw' => 'customers#withdraw'
+    get '/cart_items' => 'cart_items#index'
     root to: 'homes#top'
     get '/customers/my_page' => 'customers#show', as: 'my_page'
 
-    post 'orders/check'
 
+    post 'orders/check'
   end
 
  # 顧客用

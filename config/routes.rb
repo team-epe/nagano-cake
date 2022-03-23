@@ -34,10 +34,17 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
      get '/about' => 'homes#about'
     get 'customer/withdraw' => 'customers#withdraw'
     get '/customers/my_page' => 'customers#show', as: 'my_page'
+    get '/cart_items' => 'cart_items#index'
+    post 'orders/check'
     resources :items, only: [:index, :show]
-    resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
+    resources :cart_items, only: [:index, :create, :update, :destroy] do
+      collection do
+        delete 'destroy_all'
+      end
+    end
     resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdrow]
-    resources :orders, only: [:new, :create, :check, :complete, :index, :show]
+    get "orders/complete"
+    resources :orders, only: [:new, :create, :index, :show]
     resources :addresses, only: [:index, :destroy, :edit, :update, :create]
     #resources :sessions, only: [:new, :create, :destroy]
     #resources :registrations, only: [:new, :create]

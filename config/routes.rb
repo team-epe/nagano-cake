@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get '/customers/my_page' => 'customers#show', as: 'my_page'
   end
+  
+  devise_scope :customer do
+    get '/customers/sign_out' => 'devise/sessions#destroy'
+  end
 
  # 顧客用
 # URL /customers/sign_in ...

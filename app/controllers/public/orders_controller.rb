@@ -18,8 +18,8 @@ class Public::OrdersController < ApplicationController
         order_detail.price = cart.item.price
         order_detail.save
       end
-      cart_items.destroy_all
-      redirect_to complete_orders_path
+      @cart_items.destroy_all
+      redirect_to public_orders_complete_path
 
     end
   end
@@ -27,7 +27,8 @@ class Public::OrdersController < ApplicationController
   def check
     @order = Order.new(
       customer_id: current_customer.id,
-      payment_method: params[:payment_method]
+      payment_method: params[:order][:payment_method],
+      status: params[:order][:status]
       )
 
 
@@ -60,6 +61,12 @@ class Public::OrdersController < ApplicationController
     @order.status = 0
 
   end
+
+
+  def complete
+  end
+
+
 
   private
 

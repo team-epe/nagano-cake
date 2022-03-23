@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :items, only: [:create, :index, :new, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :update, :edit]
-    resources :orders, only: [:show, :update]
+    resources :orders, only: [:show, :update, :index]
     resources :order_details, only: [:update]
     #resources :sessions, only: [:new, :create, :destroy]
     get '/' => 'homes#top'
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     #resources :sessions, only: [:new, :create, :destroy]
     #resources :registrations, only: [:new, :create]
     get '/about' => 'homes#about'
-    get 'customer/withdraw'
+    get 'customer/withdraw' => 'customers#withdraw'
     root to: 'homes#top'
     get '/customers/my_page' => 'customers#show', as: 'my_page'
 

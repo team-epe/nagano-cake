@@ -1,4 +1,5 @@
 class Public::OrdersController < ApplicationController
+
   before_action :authenticate_customer!
 
   def new
@@ -65,7 +66,17 @@ class Public::OrdersController < ApplicationController
 
   def complete
   end
+  
+  def index
+    @customer = current_customer
+    @orders = current_customer.orders
+  end
 
+  def show
+    @customer = current_customer
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details
+  end
 
 
   private
@@ -77,4 +88,6 @@ class Public::OrdersController < ApplicationController
   def address_params
     params.require(:address).permit(:name, :address)
   end
+
+
 end

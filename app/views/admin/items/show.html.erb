@@ -2,7 +2,8 @@
   <h3>商品詳細</h3>
   <div calss="row">
     <div>
-      <%= image_tag @item.image_id, size: "200x200" %>
+      <%= attachment_image_tag @item, :image,  size: "300x300" %>
+      <%#= image_tag @item.image_id, size: "200x200" %>
     </div>
     <table>
       <tr>
@@ -11,7 +12,7 @@
       </tr>
       <tr>
         <td>ジャンル</td>
-        <td><%= @item.genre_id %></td>
+        <td><%= @item.genre.name %></td>
       </tr>
       <tr>
         <td>商品説明</td>

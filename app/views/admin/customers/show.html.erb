@@ -45,6 +45,15 @@
   <td><%= @customers.encrypted_password %></td>
 </tr>
 
+<tr>
+  <th>会員ステータス </th>
+  <% if @customers.is_deleted? %>
+    <th>退会</th>
+  <% else %>
+    <th>有効</th>
+  <% end %>
+</tr>
+
 </table>
 
 <%= link_to "編集", edit_admin_customer_path(@customers),class:"btn btn-outline-secondary btn-block" %>

@@ -78,7 +78,6 @@ class Public::OrdersController < ApplicationController
     @order_details = @order.order_details
   end
 
-
   private
 
   def order_params
@@ -86,7 +85,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def address_params
-    params.require(:address).permit(:name, :address)
+    params.permit(:name, :address)
   end
 
 

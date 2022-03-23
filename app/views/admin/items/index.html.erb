@@ -1,5 +1,6 @@
 
 <h1>商品一覧</h1>
+<%= link_to '新規登録', new_admin_item_path %>
 <table>
   <thead>
     <tr>
@@ -7,7 +8,7 @@
       <th>商品名</th>
       <th>税抜価格</th>
       <th>ジャンル</th>
-      <th>ステータス</th>
+      <th>販売ステータス</th>
     </tr>
   </thead>
   <tbody>
@@ -16,8 +17,13 @@
       <td><%= item.id %></td>
       <td><%= item.name %></td>
       <td><%= item.price %></td>
-      <td><%= item.genre_id %></td>
-      <td><%= item.is_active %></td>
+      <td><%= item.genre.name %></td>
+      <td><% if item.is_active == true %>
+            <td>販売中</td>
+          <% else %>
+            <td>在庫切れ</td>
+          <% end %>
+      </td>
       <td><%= link_to '詳細', admin_item_path(item.id) %></td>
     </tr>
     <% end %>

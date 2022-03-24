@@ -1,31 +1,33 @@
 <!--会員一覧ページ-->
-<h1>会員一覧</h1>
-<table>
-  <thead>
-    <tr>
-      <th>会員ID</th>
-      <th>姓</th>
-      <th>名</th>
-      <th>メールアドレス</th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @customers.each do |customer| %>
-    <tr>
-      <td><%= customer.id %></td>
-      <td><%= customer.last_name %></td>
-      <td><%= customer.first_name %></td>
-      <td><%= customer.email %></td>
-      <td>
-        <% if customer.is_deleted? %>
-          <span>退会</span>
-        <% else %>
-          <sapn>有効</sapn>
-        <% end %>
-      </td>
-      <td><%= link_to '詳細', admin_customer_path(customer.id) %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <h1>会員一覧</h1>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>会員ID</th>
+        <th>姓</th>
+        <th>名</th>
+        <th>メールアドレス</th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.id %></td>
+        <td><%= customer.last_name %></td>
+        <td><%= customer.first_name %></td>
+        <td><%= customer.email %></td>
+        <td>
+          <% if customer.is_deleted? %>
+            <span>退会</span>
+          <% else %>
+            <sapn>有効</sapn>
+          <% end %>
+        </td>
+        <td><%= link_to '詳細', admin_customer_path(customer.id) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

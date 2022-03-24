@@ -20,15 +20,13 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
   protected
-  # 退会しているかを判断するメソッド
+
   def customer_state
-    ## 【処理内容1】 入力されたemailからアカウントを1件取得
     @customer = Customer.find_by(email: params[:customer][:email])
-    ## アカウントを取得できなかった場合、このメソッドを終了する
     return if !@customer
-    ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
-    if @customer.valid_password?(params[:customer][:password]) && !@customer.is_deleted
-      redirect_to new_customer_registration_path, alert: "すでに退会しております。新規登録を行ってください。"
+    if @customer.valid_password?(params[:customer][:password]) && (@customer.is_deleted == false)
+      flash[:notice] = "すでに退会しております。再度登録を行ってください。"
+      redirect_to new_customer_registration_path
     end
   end
 

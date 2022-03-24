@@ -15,7 +15,7 @@
          <tr>
           <td>
              <td>配送先</td>
-             <td>〒<%= @order.post_code.insert(3, "-") %> <%= @order.address %> <%= @order.name %></td>
+             <td><%= @order.address %></td>
           </td>
          </tr>
 
@@ -41,19 +41,22 @@
       <p><b>請求情報</b></p>
          <tr>
            <td>
-             <td>商品合計</td><td><%= (@order.total_payment - @order.postage).to_s(:delimited) %></td>
+             <td>商品合計</td>
+             <td><%= (@order.total_payment - @order.shipping_cost).to_s(:delimited) %></td>
            </td>
          </tr>
 
          <tr>
            <td>
-             <td>配送料</td><td><%= @order.postage.to_s(:delimited) %></td>
+             <td>配送料</td>
+             <td><%= @order.shipping_cost %></td>
            </td>
          </tr>
 
          <tr>
           <td>
-              <td><b>ご請求額</b></td><td><%= @order.total_payment.to_s(:delimited) %></td>
+              <td><b>ご請求額</b>
+              </td><td><%= @order.total_payment.to_s(:delimited) %></td>
           </td>
          </tr>
    </tbody>
@@ -78,7 +81,7 @@
              <td> <%= order_detail.item.name %> </td>
              <td><%= order_detail.item.with_tax_price.to_s(:delimited)%> </td>
              <td><%= order_detail.amount %></td>
-             <td><%= order_detail.subtotal %>  </td>
+             <td><%= order_detail.price * order_detail.amount %></td>
         </tr>
      <% end %>
    </tbody>

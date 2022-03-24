@@ -56,6 +56,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'enumerize'
+gem "enum_help"
 gem 'webpacker',    '~> 5.0'
 
 gem 'pry-byebug'

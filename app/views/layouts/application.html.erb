@@ -15,8 +15,8 @@
     <header class="shadow-sm mb-5">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <%= link_to root_path, class: "navbar-brand" do %>
-            <h2>nagano_cake</h2>
+          <%= link_to  "/" do %>
+            <%= image_tag "top.png", size: "50x50" %>
           <% end %>
           <% if admin_signed_in? %>
             <ul class="nav justify-content-end">

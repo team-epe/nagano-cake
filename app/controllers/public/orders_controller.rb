@@ -44,8 +44,10 @@ class Public::OrdersController < ApplicationController
     elsif params[:order][:select_address] == "1"
       @address =  Address.find(params[:order][:address_id])
       @order.postal_code = @address.postal_code
-      @order.address = @adress.address
+
+      @order.address = @address.addresses
       @order.name = @address.name
+
     elsif params[:order][:select_address] == "2"
       address_new = current_customer.addresses.new(address_params)
       address_new.save
@@ -82,7 +84,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :addresses, :name, :total_payment, :status, :shipping_cost,:item_id)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :total_payment, :status, :shipping_cost,:item_id)
   end
 
   def address_params

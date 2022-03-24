@@ -30,6 +30,7 @@ class Public::OrdersController < ApplicationController
       customer_id: current_customer.id,
       payment_method: params[:order][:payment_method],
       status: params[:order][:status]
+
       )
 
 
@@ -43,16 +44,17 @@ class Public::OrdersController < ApplicationController
     elsif params[:order][:select_address] == "1"
       @address =  Address.find(params[:order][:address_id])
       @order.postal_code = @address.postal_code
-      @order.address = @adress.address
+
+      @order.address = @address.addresses
       @order.name = @address.name
+
     elsif params[:order][:select_address] == "2"
       address_new = current_customer.addresses.new(address_params)
-      #if address_new.save
+      address_new.save
+      @order.postal_code = current_customer.postal_code
+      @order.address = current_customer.address
+      @order.name = current_customer.last_name + current_customer.first_name
 
-      #else
-
-      #render :new
-    #end
 
 
     end
@@ -66,7 +68,7 @@ class Public::OrdersController < ApplicationController
 
   def complete
   end
-  
+
   def index
     @customer = current_customer
     @orders = current_customer.orders
@@ -85,7 +87,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def address_params
-    params.permit(:name, :address)
+    params.require(:order).permit(:name, :addresses,:postal_code)
   end
 
 

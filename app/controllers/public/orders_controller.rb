@@ -44,20 +44,18 @@ class Public::OrdersController < ApplicationController
     elsif params[:order][:select_address] == "1"
       @address =  Address.find(params[:order][:address_id])
       @order.postal_code = @address.postal_code
-
       @order.address = @address.addresses
       @order.name = @address.name
 
     elsif params[:order][:select_address] == "2"
-      address_new = current_customer.addresses.new(address_params)
-      address_new.save
-      @order.postal_code = current_customer.postal_code
-      @order.address = current_customer.address
-      @order.name = current_customer.last_name + current_customer.first_name
-
-
-
+      @order.postal_code = params[:order][:postal_code]
+      @order.address = params[:order][:addresses]
+      @order.name = params[:order][:name]
     end
+
+
+
+
     @total = @cart_items.inject(0) { |sum, item| sum + item.sum_price }
     @charge = @total + @order.shipping_cost
     @order.total_payment = @charge

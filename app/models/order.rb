@@ -3,6 +3,8 @@ class Order < ApplicationRecord
 
   has_many :order_details
 
+
+
   enum payment_method: {
     credit_card: 0,
     transfer: 1
@@ -15,5 +17,5 @@ class Order < ApplicationRecord
     発送準備中: 3,
     発送済み: 4,
   }
-
 end
+

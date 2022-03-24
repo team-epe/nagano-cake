@@ -1,5 +1,6 @@
+
 ja:
-    enumerize:
+    enums:
       order:
         payment_method:
           credit_card: "クレジットカード"
@@ -17,3 +18,4 @@ ja:
           waiting: "製作待ち"
           making: "製作中"
           completed: "製作完了"
+

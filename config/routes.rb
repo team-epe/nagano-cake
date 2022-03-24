@@ -20,7 +20,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   root to: 'public/homes#top'
 
   namespace :admin do
-     get '/' => 'homes#top'
+    get '/' => 'homes#top'
     resources :items, only: [:create, :index, :new, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :update, :edit]
@@ -31,10 +31,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   end
   namespace :public do
     root to: 'homes#top'
-     get '/about' => 'homes#about'
-    get 'customer/withdraw' => 'customers#withdraw'
+    get '/about' => 'homes#about'
     get '/customers/my_page' => 'customers#show', as: 'my_page'
     get '/cart_items' => 'cart_items#index'
+    get '/customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+    patch 'customers/:id/withdraw' => 'customers#withdraw', as: 'withdraw'
     post 'orders/check'
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:index, :create, :update, :destroy] do
@@ -42,7 +43,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
         delete 'destroy_all'
       end
     end
-    resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdrow]
+    resources :customers, only: [:show, :edit, :update]
     get "orders/complete"
     resources :orders, only: [:new, :create, :index, :show]
     resources :addresses, only: [:index, :destroy, :edit, :update, :create]

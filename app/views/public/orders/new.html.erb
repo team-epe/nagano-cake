@@ -34,7 +34,7 @@
     </div>
 
     <div class="row">
-    <%= f.select :address_id, options_from_collection_for_select(current_customer.address.all, :id, :full_address) %>
+    <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses.all, :id, :full_address) %>
     </div>
   <% end %>
 
@@ -46,7 +46,7 @@
     <%= f.label "郵便番号(ハイフンなし)" %>
     <%= f.text_field :postal_code,:placeholder => "0000000" %>
     <%= f.label "住所" %>
-    <%= f.text_field :address, :placeholder => "東京都渋谷区代々木神園町0-0" %>
+    <%= f.text_field :addresses, :placeholder => "東京都渋谷区代々木神園町0-0" %>
     <%= f.label "宛名" %>
     <%= f.text_field :name, :placeholder => "令和道子" %>
     <%= f.submit "確認画面へ進む" %>

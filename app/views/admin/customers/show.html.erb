@@ -1,3 +1,4 @@
+<div class="container">
 <h2><%= @customers.last_name %><%= @customers.first_name %>様の会員情報</h2>
 
 <table class="table">
@@ -41,11 +42,6 @@
 </tr>
 
 <tr>
-  <th>パスワード</th>
-  <td><%= @customers.encrypted_password %></td>
-</tr>
-
-<tr>
   <th>会員ステータス </th>
   <% if @customers.is_deleted? %>
     <th>退会</th>
@@ -56,5 +52,8 @@
 
 </table>
 
-<%= link_to "編集", edit_admin_customer_path(@customers),class:"btn btn-outline-secondary btn-block" %>
-<%= link_to "ホーム", admin_orders_path(@customers_id),class:"btn btn-outline-secondary btn-block" %>
+
+<spam><%= link_to "編集する", edit_admin_customer_path(@customers), class:"btn btn-success" %></span>
+<span><%= link_to "注文履歴一覧を見る", admin_orders_path, class: "btn btn-primary" %></span>
+
+</main>

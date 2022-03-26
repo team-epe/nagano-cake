@@ -1,5 +1,5 @@
 class Admin::ItemsController < ApplicationController
-
+  protect_from_forgery
 
   def index
     @item = Item.all
@@ -17,6 +17,11 @@ class Admin::ItemsController < ApplicationController
     redirect_to admin_item_path(@item.id)
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to admin_items_path, notice: '商品を削除しました'
+  end
 
   def show
     @item = Item.find(params[:id])

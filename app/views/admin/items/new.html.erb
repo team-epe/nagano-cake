@@ -24,7 +24,7 @@
         <td><%= f.collection_select :genre_id, @genre, :id, :name, include_blank: '-- 選択してください --' %></td>
       </tr>
       <tr>
-        <td><%= f.label :税抜価格 %></td>
+        <td><%= f.label :税込価格 %></td>
         <td><%= f.number_field :price %> 円</td>
       </tr>
       <tr>

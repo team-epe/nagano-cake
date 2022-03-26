@@ -1,23 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-2">
-      <table class="table table-bordered">
-        <thead>
-          <th>ジャンル検索</th>
-        </thead>
-        <tbody class="table table-borderless">
-          <% @genres.each do |genre| %>
-          <tr>
-            <td>
-              <%= link_to public_items_path(name: genre.id) do %>
-                <%= genre.name %>
-              <% end %>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+
     <div class="col-lg-10">
       <div class="text-center m-5">
         <div class="mv-text">
@@ -53,7 +36,7 @@
             <td><%= item.name %></td>
           </tr>
           <tr>
-            <td><%= item.price %></td>
+            <td><%= item.price %>円</td>
           </tr>
         </table>
       </div>

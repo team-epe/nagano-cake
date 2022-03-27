@@ -4,9 +4,10 @@
   <div class="row">
     <h1>商品新規登録</h1>
   </div>
+  <%= form_with model: @item, url: '/admin/items'  do |f| %>
   <div class="row">
     <table class="table table-borderless">
-      <%= form_with model: @item, url: '/admin/items'  do |f| %>
+
       <tr>
         <td><%= f.label :商品画像 %></td>
         <td><%= f.attachment_field :image %></td>
@@ -34,6 +35,7 @@
         </td>
         <td><%= f.submit '新規登録' %></td>
       </tr>
-      <% end %>
+
     </table>
   </div>
+  <% end %>

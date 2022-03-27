@@ -1,10 +1,11 @@
 <div class="container">
 <h1>ログイン</h1>
 <br>
-  <div class="justify-content-center">
-    <h3>会員の方はこちらからログイン</h3>
-    <table class="table table-borderless">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="justify-content-center">
+      <h3>会員の方はこちらからログイン</h3>
+      <table class="table table-borderless">
+
         <tr>
           <div class="field">
             <th><%= f.label :メールアドレス %></th>
@@ -36,9 +37,10 @@
             </div>
           </th>
         </tr>
-      <% end %>
-    </table>
-  </div>
+
+      </table>
+    </div>
+  <% end %>
   <br>
   <h3>会員登録がお済みでない方</h3>
   <%= render "public/shared/links" %>　から新規登録を行ってください。

@@ -1,28 +1,54 @@
 <div class="container">
   <div class="row">
-    <div class="mx-auto">
-      <p>ようこそ,ながのケーキへ!<br>
-      このサイトは、ケーキ販売のECサイトになります。<br>
-      会員でない方も商品の閲覧はできますが、<br>
-      購入には会員登録が必要になります。</p>
+
+    <div class="col-lg-10">
+      <div class="text-center m-5">
+        <div class="mv-text">
+          <span><br>
+            <h3>ようこそ、NaganoCakeへ！</h3>
+            このサイトは、ケーキ販売のECサイトになります。<br>
+            会員でない方も商品の閲覧はできますが、<br>
+            購入には会員登録が必要になります。<br><br>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row">
-    <div class="max-auto">
-      <h2>新着商品</h2>
+    <div class="col-lg-3"></div>
+    <div class="col-lg-9">
+      <strong>新着商品</strong>
     </div>
   </div>
   <div class="row">
-      <% @items.first(4).each do |item| %>
-       <div class="col-3">
-        <%= link_to item_path(item.id) do %>
-          <%= image_tag item.get_image(200,100), size: "200x100" %>
-          <p><%= item.name %></p>
-          <p><%= item.price %></p>
-        <% end %>
-       </div>
-      <% end %>
-  
-      <%= link_to "全ての商品を見る", items_path %>
+    <div class="col-lg-3"></div>
+  　<% @items.each do |item| %>
+      <div class="col-lg-2">
+        <table class="table table-borderless">
+          <tr>
+            <td>
+              <%= link_to public_item_path(item.id) do %>
+                <%= attachment_image_tag item, :image, size: '100x100' %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td><%= item.name %></td>
+          </tr>
+          <tr>
+            <td><%= item.price %>円</td>
+          </tr>
+        </table>
+      </div>
+  　<% end %>
+  </div>
+  <div class="row">
+    <table class="table table-borderless">
+      <tr>
+        <td class="text-right">
+          <%= link_to 'すべての商品を見る>', public_items_path %>
+        </td>
+      </tr>
+    </table>
   </div>
 </div>

@@ -56,3 +56,12 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'enumerize'
+gem "enum_help"
+gem 'webpacker',    '~> 5.0'
+
+gem 'pry-byebug'
+
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+
+gem "enum_help"

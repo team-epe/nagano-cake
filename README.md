@@ -1,24 +1,35 @@
-# README
+# Nagano-Cake
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト開発。
+DMM Webcampのチーム開発課題として製作しました。
 
-Things you may want to cover:
+メンバー
+・なかり
+・トム
+・ゲーマー
+・フジ
 
-* Ruby version
+機能一覧
+[管理者]
+・ログイン、ログアウト
+・注文履歴
+・商品一覧
+・ジャンル機能
+・会員一覧
 
-* System dependencies
+[顧客]
+・ログイン、ログアウト
+・注文機能
+・商品一覧
+・カート機能
+・退会機能
 
-* Configuration
+開発環境
+Cloud 9
+Rails 6.1.5
+Ruby 2.6.3
+HTML 5
+Bootstrap 4.5
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+製作期間
+2022/03/13-2022/03/27
